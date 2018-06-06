@@ -22,10 +22,9 @@ function isType(type) {
     return function(obj) {
         return Object.prototype.toString.call(obj) === "[object " + type + "]"
     }
-};
+}
 
 var isObject = isType("Object");
-var isString = isType("String");
 var isArray = isType('Array');
 
 var Configure = function() {
@@ -55,7 +54,7 @@ function cloneObj(obj, filterKey) {
         }
     }
     return result;
-};
+}
 
 Configure.prototype.parseText = function(sText) {
     var arr   = sText.split(/\r\n|\r|\n/); //行划分
@@ -208,7 +207,7 @@ Configure.prototype.get = function(key, DEFAULT_VALUE, notClone) {
         }
 
         if (i == len - 1) {
-            ret =  parent[paths[i].indexOf('<') == -1 ? paths[i] : substr(1, paths[i].length - 2)];
+            ret =  parent[paths[i].indexOf('<') == -1 ? paths[i] : paths[i].substr(1, paths[i].length - 2)];
             break;
         }
 
@@ -244,9 +243,9 @@ Configure.prototype.getDomain = function(key, DEFAULT_VALUE) {
 
     var maps = [];
     if (domain instanceof Object) {
-        for (var key in domain) {
-            if (domain[key] instanceof Object && key !== 'tars_config_line_vector_value') {
-                maps.push(key);
+        for (var value in domain) {
+            if (domain[value] instanceof Object && value !== 'tars_config_line_vector_value') {
+                maps.push(value);
             }
         }
     }
@@ -273,7 +272,7 @@ Configure.prototype.getDomainLine = function(key, DEFAULT_VALUE) {
 };
 
 // 获取key所对应的对象中的类型为对象的属性值数组（非递归）
-Configure.prototype.getDomainValue = function(key, DEFAULT_VALUE) {
+Configure.prototype.getDomainValue = function(key) {
     var arr = [];
     var keys = this.getDomain(key, []);
     for (var i = 0; i < keys.length; i++) {

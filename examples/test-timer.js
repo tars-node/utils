@@ -19,14 +19,14 @@
 var timeProvider = require('../index').timeProvider;
 
 var i = 0, count = 10000000;
-var tt1, tt2, interval = 0;
+var tt1;
 var t1 = new Date().getTime();
 var t2 = t1;
 
 tt1 = timeProvider.nowTimestamp();
 for(i = 0; i < count; i++)
 {
-    tt2 = timeProvider.diff(tt1);
+    timeProvider.diff(tt1);
 }
 t2 = new Date().getTime();
 console.log('【hrTime】interval: ' + (t2 - t1));
@@ -35,7 +35,7 @@ t1 = new Date().getTime();
 tt1 = timeProvider.dateTimestamp();
 for(i = 0; i < count; i++)
 {
-    tt2 = timeProvider.dateTimestampDiff(tt1);
+    timeProvider.dateTimestampDiff(tt1);
 }
 t2 = new Date().getTime();
 console.log('【hrTime】interval: ' + (t2 - t1));
