@@ -2,6 +2,7 @@
   "name": "@tars/utils",
   "version": "2.0.0",
   "description": "TARS 框架辅助工具集合",
+  "types": "tars-utils.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/tars-node/utils.git"
