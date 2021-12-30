@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Tencent is pleased to support the open source community by making Tars available.
  *
  * Copyright (C) 2016THL A29 Limited, a Tencent company. All rights reserved.
@@ -14,10 +14,20 @@
  * specific language governing permissions and limitations under the License.
  */
 
-'use strict';
+ 'use strict';
 
-module.exports.Config = require("./tars-config-parser.js");
-module.exports.Endpoint = require("./tars-endpoint.js");
-module.exports.timeProvider = require("./tars-timer.js");
-module.exports.uuidGenerator = require("./tars-uuid-generator.js");
-module.exports.Promise = require("./tars-promise");
+ var uuidGenerator = require('../index').uuidGenerator;
+
+function test(){
+    for(var i = 0; i< 5; i++){
+        console.log(uuidGenerator.genID());
+    }
+    setTimeout(function(){
+        for(var i = 0; i< 5; i++){
+            console.log(uuidGenerator.genID());
+        }
+    }, 2000)
+}
+
+test()
+

@@ -118,6 +118,14 @@ export namespace timeProvider {
   export function dateTimestampDiff (oTime: Timestamp): number
 }
 
+export namespace uuidGenerator {
+  /** 根据ip、pid、时间戳、seq 生成的随机不重复uuid */
+  export function genID (): string
+
+  /** 重新初始化uuid生成器，指定ip */
+  export function init(sIp: string): void
+}
+
 interface TarsPromiseConstructor extends PromiseConstructor {
   defer<T> (): {
     promise: Promise<T>,
